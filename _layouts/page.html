@@ -1,0 +1,20 @@
+---
+layout: default
+---
+<article class="page pt-3">
+
+  <header class="page-header">
+    <h1 class="mb-3 text-center">
+      {% if page.url contains "music" %}
+        Music
+      {% else %}
+        {{ page.title }}
+      {% endif %}
+    </h1>
+  </header>
+
+  <div class="page-content">
+    {{ content }}
+  </div>
+
+</article>

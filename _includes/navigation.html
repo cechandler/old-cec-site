@@ -1,0 +1,61 @@
+<nav class="navbar navbar-expand-lg fixed-top">
+
+  <a class="navbar-brand" href="#">Christopher Chandler | composer</a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-header" aria-controls="navbar-header" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fa fa-bars"></i>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbar-header">
+    <ul class="navbar-nav ml-auto flex-column flex-lg-row">
+      {%- for entry in site.data.navigation -%}
+        {% assign current = nil %}
+        {% if page.url contains entry.url %}
+          <!-- {% assign current = 'active' %} switch back to this if sr-only looks weird on mobile-->
+          {% assign current = "active <span class="sr-only">(current)</span>" %}
+        {% elsif page.url contains "music" and entry.url contains "music" %}
+          {% assign current = "active <span class="sr-only">(current)</span>" %}
+        {% elsif page.url contains "news" and entry.url contains "news" %}
+          {% assign current = "active <span class="sr-only">(current)</span>" %}
+        {% elsif page.url contains "research" and entry.url contains "research" %}
+          {% assign current = "active <span class="sr-only">(current)</span>" %}
+        {% endif %}
+        {%- if entry.sublinks -%}
+          <li class="nav-item dropdown {% if forloop.first %}first{% endif %} {{ current }} {% if forloop.last %}last{% endif %}">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdownMenu{{ entry.title }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{- entry.title -}}
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu{{ entry.title }}">
+              {%- for sublink in entry.sublinks -%}
+                <a class="dropdown-item" href="{{ site.url }}{{ sublink.url }}">{{ sublink.page }}</a>
+              {%- endfor -%}
+            </div>
+          </li>
+        {%- else -%}
+
+          <li class="nav-item {% if forloop.first %}first{% endif %} {{ current }} {% if forloop.last %}last{% endif %}"><a class="nav-link" href="{{ site.url }}{{ entry.url }}" alt="{{ entry.title }}">{{ entry.title }}</a></li>
+
+        {%- endif -%}
+
+      {%- endfor -%}
+      {% comment %}
+      {% for link in site.navigation %}
+        {% assign current = nil %}
+        {% if page.url contains link.url %}
+          <!-- {% assign current = 'active' %} switch back to this if sr-only looks weird on mobile-->
+          {% assign current = "active <span class="sr-only">(current)</span>" %}
+        {% elsif page.url contains "music" and link.url contains "music" %}
+          {% assign current = "active <span class="sr-only">(current)</span>" %}
+        {% elsif page.url contains "news" and link.url contains "news" %}
+          {% assign current = "active <span class="sr-only">(current)</span>" %}
+        {% endif %}
+
+        <li class="nav-item {% if forloop.first %}first{% endif %} {{ current }} {% if forloop.last %}last{% endif %}">
+          <a class="nav-link" href="{{ link.url }}">{{ link.title }}</a>
+        </li>
+
+      {% endfor %}
+      {% endcomment %}
+    </ul>
+  </div>
+</nav>

@@ -1,0 +1,64 @@
+---
+layout: page
+title: Smoke and Mirrors
+---
+
+{% assign work = "Smoke and Mirrors" %}
+
+{% for entry in site.data.works %}
+  {% if entry.Title == work %}
+
+    {% if entry.Score == null %}
+
+      <div class="row work">
+        <div class="col-md-12">
+
+          {% include music-title.html %}
+
+          {% include music-audio.html %}
+
+          {% include music-program-notes.html %}
+
+        </div>
+      </div>
+
+    {% else %}
+
+    <div class="row work">
+      <div class="col-md-7">
+
+        {% include music-title.html %}
+
+        {% include music-audio.html %}
+
+        {% include music-program-notes.html %}
+
+      </div>
+
+      <div class="col-9 col-md-5 pb-4 pb-md-0 mx-auto">
+
+        {% include music-score.html hidden="Y" file="smoke-and-mirrors-1.png" %}
+        {% include music-score.html hidden="Y" file="smoke-and-mirrors-2.png" %}
+        {% include music-score.html hidden="Y" file="smoke-and-mirrors-3.png" %}
+        {% include music-score.html hidden="N" file="smoke-and-mirrors-4.png" %}
+        {% include music-score.html hidden="Y" file="smoke-and-mirrors-5.png" %}
+        {% include music-score.html hidden="Y" file="smoke-and-mirrors-6.png" %}
+        {% include music-score.html hidden="Y" file="smoke-and-mirrors-7.png" %}
+        {% include music-score.html hidden="Y" file="smoke-and-mirrors-8.png" %}
+        {% include music-score.html hidden="Y" file="smoke-and-mirrors-9.png" %}
+        {% include music-score.html hidden="Y" file="smoke-and-mirrors-10.png" %}
+        {% include music-score.html hidden="Y" file="smoke-and-mirrors-11.png" %}
+        {% include music-score.html hidden="Y" file="smoke-and-mirrors-12.png" %}
+        {% include music-score.html hidden="Y" file="smoke-and-mirrors-13.png" %}
+
+      </div>
+
+    </div>
+
+    {% endif %}
+
+    {% include music-perf-list.html %}
+
+  {% else %}
+  {% endif %}
+{% endfor %}

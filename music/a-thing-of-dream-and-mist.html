@@ -1,0 +1,57 @@
+---
+layout: page
+title: a thing of dream and mist
+---
+
+{% assign work = "a thing of dream and mist" %}
+
+{% for entry in site.data.works %}
+  {% if entry.Title == work %}
+
+    {% if entry.Score == null %}
+
+      <div class="row work">
+        <div class="col-md-12">
+
+          {% include music-title.html %}
+
+          {% include music-audio.html %}
+
+          {% include music-program-notes.html %}
+
+        </div>
+      </div>
+
+    {% else %}
+
+    <div class="row work">
+      <div class="col-md-7">
+
+        {% include music-title.html %}
+
+        {% include music-audio.html %}
+
+        {% include music-program-notes.html %}
+
+      </div>
+
+      <div class="col-9 col-md-5 pb-4 pb-md-0 mx-auto">
+
+        {% include music-score.html hidden="Y" file="a-thing-of-dream-and-mist-1.png" %}
+        {% include music-score.html hidden="Y" file="a-thing-of-dream-and-mist-2.png" %}
+        {% include music-score.html hidden="N" file="a-thing-of-dream-and-mist-3.png" %}
+        {% include music-score.html hidden="Y" file="a-thing-of-dream-and-mist-4.png" %}
+        <!-- {% include music-score.html hidden="Y" file="a-thing-of-dream-and-mist-5.png" %} -->
+        <!-- {% include music-score.html hidden="Y" file="a-thing-of-dream-and-mist-6.png" %} -->
+
+      </div>
+
+    </div>
+
+    {% endif %}
+
+    {% include music-perf-list.html %}
+
+  {% else %}
+  {% endif %}
+{% endfor %}

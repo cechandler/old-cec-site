@@ -1,0 +1,72 @@
+---
+layout: page
+title: Smoke and Mirrors II
+---
+
+{% assign work = "Smoke and Mirrors II" %}
+
+{% for entry in site.data.works %}
+  {% if entry.Title == work %}
+
+    {% if entry.Score == null %}
+
+      <div class="row work">
+        <div class="col-md-12">
+
+          {% include music-title.html %}
+
+          {% include music-audio.html file="smoke-and-mirrors-ii-ex1" name="Excerpt 1" %}
+          {% include music-audio.html file="smoke-and-mirrors-ii-ex2" name="Excerpt 2" %}
+
+          {% include music-program-notes.html %}
+
+        </div>
+      </div>
+
+    {% else %}
+
+    <div class="row work">
+      <div class="col-md-7">
+
+        {% include music-title.html %}
+
+        {% include music-audio.html file="smoke-and-mirrors-ii-ex1" name="Excerpt 1" %}
+        {% include music-audio.html file="smoke-and-mirrors-ii-ex2" name="Excerpt 2" %}
+
+        {% include music-program-notes.html %}
+
+      </div>
+
+      <div class="col-9 col-md-5 pb-4 pb-md-0 mx-auto">
+
+        <!-- {% include music-score.html hidden="Y" file="smoke-and-mirrors-ii-1.png" %} -->
+        <!-- {% include music-score.html hidden="Y" file="smoke-and-mirrors-ii-2.png" %} -->
+        <!-- {% include music-score.html hidden="Y" file="smoke-and-mirrors-ii-3.png" %} -->
+        <!-- {% include music-score.html hidden="N" file="smoke-and-mirrors-ii-5.png" %} -->
+        <!-- {% include music-score.html hidden="Y" file="smoke-and-mirrors-ii-6.png" %} -->
+        <!-- {% include music-score.html hidden="Y" file="smoke-and-mirrors-ii-7.png" %} -->
+        <!-- {% include music-score.html hidden="Y" file="smoke-and-mirrors-ii-8.png" %} -->
+        <!-- {% include music-score.html hidden="Y" file="smoke-and-mirrors-ii-9.png" %} -->
+        <!-- {% include music-score.html hidden="Y" file="smoke-and-mirrors-ii-10.png" %} -->
+        <!-- {% include music-score.html hidden="Y" file="smoke-and-mirrors-ii-11.png" %} -->
+        <!-- {% include music-score.html hidden="Y" file="smoke-and-mirrors-ii-12.png" %} -->
+        <!-- {% include music-score.html hidden="Y" file="smoke-and-mirrors-ii-13.png" %} -->
+        <!-- {% include music-score.html hidden="Y" file="smoke-and-mirrors-ii-14.png" %} -->
+        <!-- {% include music-score.html hidden="Y" file="smoke-and-mirrors-ii-15.png" %} -->
+        <!-- {% include music-score.html hidden="Y" file="smoke-and-mirrors-ii-32.png" %} -->
+        <!-- {% include music-score.html hidden="Y" file="smoke-and-mirrors-ii-33.png" %} -->
+        <!-- {% include music-score.html hidden="Y" file="smoke-and-mirrors-ii-34.png" %} -->
+        <!-- {% include music-score.html hidden="Y" file="smoke-and-mirrors-ii-35.png" %} -->
+        <!-- {% include music-score.html hidden="Y" file="smoke-and-mirrors-ii-36.png" %} -->
+
+      </div>
+
+    </div>
+
+    {% endif %}
+
+    {% include music-perf-list.html %}
+
+  {% else %}
+  {% endif %}
+{% endfor %}

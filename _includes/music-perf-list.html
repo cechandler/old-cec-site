@@ -1,0 +1,77 @@
+{%- assign printHeader = true -%}
+{%- for entry in site.data.performances -%}
+	{%- if entry.Composition == work -%}
+		{%- if printHeader == true -%}
+			<h3 class="text-center text-md-left mb-3">Performances</h3>
+			{%- assign printHeader = false -%}
+		{%- endif -%}
+	{%- endif -%}
+{%- endfor -%}
+<div class="perf-list">
+	<!-- liquid capture stores variable -->
+	<!-- %s filter is a unix timestamp to compare current time with performance date for upcoming class -->
+	{% for entry in site.data.performances %}
+		{% if entry.Composition == work %}
+			{% capture time_now %}{{ 'now' | date: "%s" }}{% endcapture %}
+			{% capture full_date %}{{ entry.Year }}-{{ entry.Month }}-{{ entry.Day }}{% endcapture %}
+			{% capture perf_date %}{{ full_date | date: '%s' }}{% endcapture %}
+
+			<div class="performance {{ entry.Year }} {% if perf_date > time_now %}upcoming{% else %}past{% endif %} mb-3">
+
+				<div class="row">
+
+					 {% if entry.Image == null %}
+					 <div class="col-5 col-md-3 ml-sm-auto"></div>
+					 {% else %}
+					   <div class="col-5 col-md-3 ml-sm-auto">
+							 <img src="{{ site.baseurl }}/assets/img/{{ entry.Image }}" alt="image" class="img-thumbnail"/>
+						 </div>
+					 {% endif %}
+
+				 	 <div class="details col-7 col-md-9 mr-sm-auto">
+						 <p class="date font-weight-bold">{{ full_date | date:"%B" }} {{ full_date | date: "%-d" }}, {{ full_date | date: "%Y" }}</p>
+
+						 {% if entry.Conductor == null %}
+						 	 <p class="performer">{{ entry.Performers }}</p>
+						 {% else %}
+							 <p class="performer">{{ entry.Performers }}</p>
+							 <p class="conductor">{{ entry.Conductor }}, conductor</p>
+						 {% endif %}
+
+						 {% if entry.Event == null %}
+						 {% else %}
+						 	 <p class="event">{{ entry.Event }}</p>
+						 {% endif %}
+
+						 <div class="address">
+							 <p class="venue">{{ entry.Venue }}</p>
+
+							 {% if entry.Street == null %}
+							 {% else %}
+							 	 <p class="street">{{ entry.Street }}</p>
+							 {% endif %}
+
+							 <p class="citystate">{% if entry.City == null %}{% else %}{{ entry.City }}, {% endif %}{{ entry.State }}</p>
+						 </div>
+
+						 <!-- {% if entry.Time == null %}
+						 {% else %}
+						 		<p class="time">{{ entry.Time }}</p>
+						 {% endif %}
+
+						 {% if entry.Price == null %}
+						 {% else %}
+						 		<p class="price">{{ entry.Price }}</p>
+						 {% endif %}
+
+						 {% if entry.Repertoire == null %}
+						 {% else %}
+						 {% endif %} -->
+
+				 	 </div><!-- /.details -->
+				 </div><!-- /.row -->
+			</div><!-- /.performance -->
+    {% else %}
+    {% endif %}
+	{% endfor %}
+</div> <!-- /.performance-list -->

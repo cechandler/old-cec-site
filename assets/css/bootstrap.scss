@@ -1,0 +1,388 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+/*!
+ * Bootstrap v4.0.0-beta (https://getbootstrap.com)
+ * Copyright 2011-2017 The Bootstrap Authors
+ * Copyright 2011-2017 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+
+// Customize bootstrap variables for my site
+$black:                     #202020;
+$gray-dark:                 #373a3c;
+$gray:                      #55595c;
+$gray-light:                #818a91;
+$gray-lighter:              lighten($gray-light, 15%);
+$gray-lighterer:            #eceeef;
+$gray-lightest:             #f7f7f9;
+$white:                     #fff;
+
+$brand-primary:             #0275d8; // #013ADF; // #313042;
+$brand-secondary:           #5bc0de;
+$brand-success:             #5cb85c;
+$brand-info:                #5bc0de;
+$brand-warning:             #f0ad4e;
+$brand-danger:              #d9534f;
+
+$background-color:          $gray-lightest;
+$container-color:           $gray-lightest;
+$body-bg:                   $background-color;
+
+$link-color:                $brand-primary;
+$link-decoration:           none;
+$link-hover-color:          darken($link-color, 15%);
+$link-hover-decoration:     none;
+
+$font-size-base:            0.95rem;
+$font-family-sans-serif:    'PT Sans',Helvetica,Arial,sans-serif; //'Source Sans Pro'
+$font-family-serif:         'Merriweather',Georgia,"Times New Roman",Times,Baskerville,serif;
+$font-family-base:          $font-family-serif;
+
+$line-height-base:          1.75;
+
+$headings-font-family:      $font-family-sans-serif;
+$headings-font-weight:      bold;
+$headings-line-height:      1.1;
+$headings-color:            inherit;
+
+$btn-border-radius:         0rem;
+$btn-border-radius-lg:      0rem;
+$btn-border-radius-sm:      0rem;
+
+// BOOTSTRAP SCSS IMPORTS
+@import "functions";
+@import "variables";
+@import "mixins";
+@import "print";
+@import "reboot";
+@import "type";
+@import "images";
+@import "code";
+@import "grid";
+@import "tables";
+@import "forms";
+@import "buttons";
+@import "transitions";
+@import "dropdown";
+@import "button-group";
+@import "input-group";
+@import "custom-forms";
+@import "nav";
+@import "navbar";
+@import "card";
+@import "breadcrumb";
+@import "pagination";
+@import "badge";
+@import "jumbotron";
+@import "alert";
+@import "progress";
+@import "media";
+@import "list-group";
+@import "close";
+@import "modal";
+@import "tooltip";
+@import "popover";
+@import "carousel";
+@import "utilities";
+
+/*
+ * Global elements
+ */
+html {
+  font-size: $font-size-base;
+}
+
+@include media-breakpoint-up(xs) {
+  html {
+    font-size: $font-size-base * 0.65;
+  }
+}
+
+@include media-breakpoint-up(sm) {
+  html {
+    font-size: $font-size-base;
+  }
+}
+
+body a {
+  color: $black;
+  border-bottom: 1px solid $gray-lighter;
+}
+body nav a,
+body a.more,
+body a.mejs-horizontal-volume-slider,
+body a.fancybox-close {
+  border-bottom: 0px solid $gray-lighter;
+}
+
+body.Curriculum h4 {
+  margin-top: 1.75rem;
+}
+
+body.Curriculum ul {
+  padding-left: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+hr {
+  width: 100px;
+  height: 1px;
+  margin: 2rem auto;
+  background-color: $gray-lighter;
+  border: 0;
+}
+
+.bg {
+    /* The image used */
+    background-image: url("{{ site.baseurl }}/assets/img/chris-chandler-headshot-woods.jpg");
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.btn-outline-secondary:active, .btn-outline-secondary.active, .show > .btn-outline-secondary.dropdown-toggle {
+    color: #fff;
+    background-color: $gray-dark;
+    border-color: $gray-dark;
+}
+
+/*
+ * Navigation
+ */
+body > nav {
+  box-shadow: 0 4px 2px -2px lighten($gray-lighter, 10%);
+}
+#navbar-header, #navbar-header > ul {
+  list-style-type: none;
+  margin-bottom: 0rem;
+}
+.navbar.fixed-top {
+  background-color: #f7f7f9;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+.nav-item a {
+  color: $gray-dark;
+}
+.nav-item.active a {
+  color: $gray-dark;
+  font-weight: bold;
+}
+a.nav-link:hover,
+a.nav-link:focus {
+  color: darken($gray-light, 15%);
+}
+
+/*
+ * WRAPPER AND CONTAINER
+ */
+.wrapper {
+   margin-top: 4.5rem;
+ }
+.container {
+  width: 100%;
+  max-width: 50rem;
+}
+
+/*
+ * POST
+ */
+.post {
+   margin-bottom: 2rem;
+ }
+.post-header {
+  margin-bottom: 0.5rem;
+}
+.post-header h4 {
+  margin-bottom: 0rem;
+}
+.post-meta {
+  color: $gray;
+}
+.pagination button {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+.news-item {
+  margin-bottom: 0.5rem;
+  overflow: auto;
+}
+.post-date, .news-date {
+  color: $gray-light;
+  float: none;
+  display: block;
+  margin-left: 0rem;
+}
+@include media-breakpoint-up(sm) {
+  .post-date, .news-date {
+    float: right;
+    display: inline;
+    margin-left: 1rem;
+  }
+}
+.news-year {
+  margin-top: 2rem;
+}
+
+/*
+ * RECORDINGS
+ */
+.recording {
+  margin-bottom: 3rem;
+}
+
+/*
+ * PERFORMANCES
+ */
+.performance p,
+.latestperf p {
+  margin: 0rem;
+}
+.composition {
+  font-style: italic;
+}
+@include media-breakpoint-up(sm) {
+  .performance .date,
+  .performance .location,
+  .performance .performer,
+  .performance .conductor,
+  .performance .event,
+  .performance .venue,
+  .performance .street,
+  .performance .citystate  {
+    white-space: nowrap;
+  }
+}
+
+/*
+ * MUSIC
+ */
+.instrumentation {
+  color: $gray;
+}
+p.instrumentation {
+  margin-bottom: 0rem;
+}
+.perf-list p {
+  margin: 0rem;
+}
+.perf-list .perf {
+  margin-bottom: $spacer;
+}
+.duration {
+  color: $gray;
+}
+.program-notes {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+/*
+ * MIXITUP STYLING FOR WORKS AND PERFS
+ */
+.mixitup-music .work {
+	display: none;
+}
+.mixitup-event .performance {
+	display: none;
+}
+.btn-default:active,
+.btn-default.active {
+	background-color: $brand-primary;
+	color: $white;
+}
+.btn-sm {
+  margin-bottom: 0.5rem;
+}
+
+/*
+* FANCYBOX
+*/
+.hidden {
+  display: none;
+}
+#links {
+  position: fixed;
+  margin-bottom: 1.5rem;
+  bottom: 10px;
+  width: 100%;
+  padding-top: 10px;
+  list-style: none;
+  text-align: center;
+  z-index: 99999;
+}
+#links li {
+  display: inline;
+  padding: 0 5px;
+}
+#links li label {
+  width: 12px;
+  height: 12px;
+  border-radius: 100%;
+  display: inline-block;
+  background-color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+#links li.active label {
+  background-color: $brand-success;
+}
+::selection {
+  background: $brand-success;
+  color: #fafcf9;
+  text-shadow: none
+}
+::-moz-selection {
+  background: $brand-success;
+  color: #fafcf9;
+  text-shadow: none
+}
+.mejs-controls .mejs-time-rail .mejs-time-loaded {
+  background: $brand-success !important;
+}
+.mejs-container,
+.mejs-container .mejs-controls {
+  background: $gray-dark;
+}
+
+.offsetFix:before {
+  display: block;
+  position: relative;
+ 	content: "";
+  width: 0;
+	height: 100px;
+  margin-top: -100px;
+}
+@media (max-width: 991px) {
+  .offsetFix:before {
+    display: block;
+    position: relative;
+   	content: "";
+    width: 0;
+  	height: 100px;
+    margin-top: -100px;
+  }
+}
+
+.offsetFixFn:before {
+  position: relative;
+ 	content: "";
+  width: 0;
+	height: 100px;
+  margin-top: -100px;
+}
+@media (max-width: 991px) {
+  .offsetFixFn:before {
+    position: relative;
+   	content: "";
+    width: 0;
+  	height: 100px;
+    margin-top: -100px;
+  }
+}

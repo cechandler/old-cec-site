@@ -1,0 +1,73 @@
+---
+layout: page
+title: News
+---
+<div class="archive row">
+
+  <div class="post-list col-md-12">
+
+    {% for post in site.posts limit:5 %}
+      {% if post.categories contains "news" %}
+
+      {% assign currentdate = post.date | date: "%Y" %}
+      {% if currentdate != date %}
+        <h2 id="y{{post.date | date: "%Y"}}" class="news-year text-center {% if forloop.first %}mt-0{% endif %}">{{ currentdate }}</h2>
+        {% assign date = currentdate %}
+      {% endif %}
+
+        <div class="post">
+          <div class="post-header">
+            <span class="post-date">{{ post.date | date: "%B %-d, %Y" }}</span>
+            <span class="font-weight-bold">{{ post.title }}</span>
+          </div>
+          <div class="post-content mx-3">
+            {{ post.content }}
+            <!-- <div class="alert alert-light">{{ post.content }}</div> -->
+          </div>
+          <div class="post-footer"></div>
+          <!-- <hr /> -->
+        </div>
+      {% endif %}
+    {% endfor %}
+
+    <!-- accordion style posts -->
+    <div id="accordion" role="tablist" aria-multiselectable="true">
+      <div class="panel panel-default">
+
+        {% for post in site.posts offset:5 %}
+          {% assign currentdate = post.date | date: "%Y" %}
+          {% if currentdate != date %}
+            <h2 id="y{{post.date | date: "%Y"}}" class="news-year text-center">{{ currentdate }}</h2>
+            {% assign date = currentdate %}
+          {% endif %}
+
+        <div class="panel-heading news-item" role="tab" id="heading-{{ post.id | remove: '/'}}">
+          <span class="panel-title">
+            <span class="post-date news-date">{{ post.date | date: "%B %-d, %Y" }}</span>
+            <a class="collapsed font-weight-bold" data-toggle="collapse" data-parent="#accordion" href="#collapse-{{ post.id | remove: '/'}}" aria-expanded="false" aria-controls="collapse-{{ post.id | remove: '/'}}">{{ post.title }}</a>
+          </span>
+        </div>
+        <div id="collapse-{{ post.id | remove: '/'}}" class="mx-3 mt-3 mb-4 panel-collapse collapse" role="tabpanel" aria-labelledby="heading-{{ post.id | remove: '/'}}">
+          {{ post.content }}
+          <!-- <div class="alert alert-light">{{ post.content }}</div> -->
+        </div>
+
+        {% endfor %}
+
+      </div>
+    </div>
+
+    <!-- {% for post in site.posts %}
+      {% assign currentdate = post.date | date: "%Y" %}
+      {% if currentdate != date %}
+        <h4 id="y{{post.date | date: "%Y"}}" class="news-year">{{ currentdate }}</h4>
+        {% assign date = currentdate %}
+      {% endif %}
+        <div class="news-item">
+          <span class="post-date news-date">{{ post.date | date: "%B %-d, %Y" }}</span>
+          <a href="{{ post.url }}">{{ post.title }}</a>
+        </div>
+    {% endfor %} -->
+
+  </div><!-- ./post-list -->
+</div><!-- ./archive row -->

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+  <meta name="description" content="Website for the composer Christopher Chandler.
+">
+  <meta name="author" content="">
+  <!-- <link rel="icon" href="../../favicon.ico"> -->
+
+  <title>Tools</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="/assets/css/bootstrap.css" rel="stylesheet">
+
+  <!-- Media Element JS CSS -->
+  <link href="/assets/css/mediaelement/mediaelementplayer.min.css" rel="stylesheet">
+
+  <!-- Font Awesome CSS -->
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <!-- Alternate heading family font: Source Sans Pro:400,300,300italic,400italic -->
+  <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Merriweather:300,300italic,700' rel='stylesheet' type='text/css'>
+
+  <!-- fancyBox -->
+  <link rel="stylesheet" href="/assets/fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+  <link rel="stylesheet" href="/assets/fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5" type="text/css" media="screen" />
+  <link rel="stylesheet" href="/assets/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
+
+  <link rel="canonical" href="http://localhost:4000/research/tools/">
+  <link rel="alternate" type="application/rss+xml" title="CEC | Composer" href="http://localhost:4000/feed.xml">
+</head>
+
+
+  <body class="Tools">
+
+    <header class="site-header">
+
+</header>
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+
+  <a class="navbar-brand" href="#">Christopher Chandler | composer</a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-header" aria-controls="navbar-header" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fa fa-bars"></i>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbar-header">
+    <ul class="navbar-nav ml-auto flex-column flex-lg-row">
+        <li class="nav-item first  "><a class="nav-link" href="http://localhost:4000/index.html" alt="Home">Home</a></li>
+        <li class="nav-item   "><a class="nav-link" href="http://localhost:4000/about/" alt="About">About</a></li>
+        <li class="nav-item   "><a class="nav-link" href="http://localhost:4000/news/" alt="News">News</a></li>
+        <li class="nav-item   "><a class="nav-link" href="http://localhost:4000/music/" alt="Music">Music</a></li>
+        
+          <!--  switch back to this if sr-only looks weird on mobile-->
+          
+        <li class="nav-item dropdown  active <span class= ">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuResearch" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Research</a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuResearch"><a class="dropdown-item" href="http://localhost:4000/research/tools/">Tools</a><a class="dropdown-item" href="http://localhost:4000/research/dissertation/">Dissertation</a></div>
+          </li>
+        <li class="nav-item   "><a class="nav-link" href="http://localhost:4000/recordings/" alt="Recordings">Recordings</a></li>
+        <li class="nav-item   last"><a class="nav-link" href="http://localhost:4000/performances/" alt="Performances">Performances</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+    <div class="wrapper">
+      <div class="container">
+
+        <article class="page pt-3">
+
+  <header class="page-header">
+    <h1 class="mb-3 text-center">
+      
+        Tools
+      
+    </h1>
+  </header>
+
+  <div class="page-content">
+    <!-- My research in music technology is inherently tied to my compositional work. Through my use of Max/MSP and SuperCollider, I create compositional and analytical tools that serve the needs of my creative projects.  -->
+
+<p>Below you can find a selection of recent tools that I have developed for compositional and analytical projects. Some of these are still in active development, so be aware there may be bugs or idiosyncrasies in functionality. There are links to download some of the tools, and all that I ask is that you let me know if you find them useful and please give attribution if you repurpose some of my work in your own. Please be in touch if you find any bugs.</p>
+
+<h2 class="my-3">Generative Sound File Player</h2>
+
+<p><img src="/assets/img/gsfp1.png" class="img-fluid" alt="Screenshot of GSFP" /></p>
+
+<p>The Generative Sound File Player is my most recent tool that allows for the algorithmic sound file playback with controls for real-time manipulation. One can load up and sequence any number of sound files using a variety of parameters, which you can see on the interface screenshot above. In this screenshot and the video demo below, there are two independent voices that can be triggered. But an arbitrary number of separate voices is possible, constrained only by the processing power of the computer it is running on. The controls to interact with the GSFP are currently only text-based but the organization of the software allows for easy implementation of graphic control (through user interface objects or touch-based controllers) in the near future.</p>
+
+<div class="col-12 mb-4 text-center">
+  <a href="#" class="btn btn-outline-secondary">Download</a>
+</div>
+
+<p>The functionality of the parameters in the image above are:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">wait time:</code> the duration of time (in milliseconds) between the onsets of the GSFP being triggered</li>
+  <li><code class="language-plaintext highlighter-rouge">density:</code> the number of “notes” or sound files to be triggered at the moment of an onset</li>
+  <li><code class="language-plaintext highlighter-rouge">offset:</code> the time variation (in milliseconds) between note onsets (ie., the onset of the GFSP triggers 5 sounds, they can all happen at once with a delta of 0 or be displaced in time from one another)</li>
+  <li><code class="language-plaintext highlighter-rouge">buffers:</code> the buffer names of sounds to use (folders of sounds can also be loaded with the keyword <code class="language-plaintext highlighter-rouge">sset</code>)</li>
+  <li><code class="language-plaintext highlighter-rouge">amp:</code> amplitude levels of sound file playback</li>
+  <li><code class="language-plaintext highlighter-rouge">attack time:</code> the duration of the envelope’s attack (in milliseconds)</li>
+  <li><code class="language-plaintext highlighter-rouge">attack curve:</code> the slope or curve of the envelope’s attack (in milliseconds (positive values give a logarithmic curve, negative values give an exponential curve, and zero gives a linear ramp)</li>
+  <li><code class="language-plaintext highlighter-rouge">release time:</code> the duration of the envelope’s release (in milliseconds)</li>
+  <li><code class="language-plaintext highlighter-rouge">release curve:</code> same as attack curve but for the release of the sound</li>
+  <li><code class="language-plaintext highlighter-rouge">rate:</code> playback rate, where 1.0 is normal speed (0.5 is half speed, 2.0 is twice speed); specific keywords allow one to transpose in intervals (ie., 1 for minor 2nd higher, -12 for octave lower) or midicents (ie., 100 for minor second higher, -50 for quarter step lower, 1200 for octave higher)</li>
+  <li><code class="language-plaintext highlighter-rouge">start position:</code> the location within a given buffer from which to begin playback, where 0.0 is the beginning of the file and 1.0 is the end</li>
+  <li><code class="language-plaintext highlighter-rouge">pan:</code> the stereo location of the sound on a range from -1.0 to 1.0 (left to right)</li>
+  <li><code class="language-plaintext highlighter-rouge">out:</code> output channels that the given voice will be sent
+    <ul>
+      <li>for the moment, everything is reduced to a stereo image</li>
+      <li>however, the different output channels allows each voice to be separated into a stereo stem when a recording is made</li>
+      <li>using the recording controls in the upper right corner of the top row, set the number of channels you need in the number box (e.g., 16), press the toggle, and make sound</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Inside the software there is a flexible and powerful custom abstraction called <code class="language-plaintext highlighter-rouge">the_patterner</code> that allows one to control each of these parameters through the use of special keywords. Keywords are followed by arguments (integers, floating point numbers, and symbols) that allow for variation and randomization of a given parameter. At the current moment there are several functioning keywords, below is a list of them and the way in which they can be implemented (optional arguments are given in &lt;these braces&gt;):</p>
+
+<h5 id="range-distribution-lo-hi"><code class="language-plaintext highlighter-rouge">range</code> &lt;distribution&gt; lo hi</h5>
+
+<ul>
+  <li>function: randomly outputs values within the given range</li>
+  <li>arguments:
+    <ul>
+      <li>distribution:
+        <ul>
+          <li>white (default, equal probability within the range)</li>
+          <li>drunk <num steps=""> (random walk within range)</num></li>
+          <li>exp <slope> (exponential probability weighted towards upper values)</slope></li>
+          <li>rexp <slope> (reverse exponential probability weighted towards lower values)
+</slope>            <ul>
+              <li>slope: greater than 1.0 = steeper slope</li>
+              <li>default slope = 2.0</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>lo / hi:
+        <ul>
+          <li>int1 int2</li>
+          <li>float1 float2</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h5 id="sequence-or-seq-list"><code class="language-plaintext highlighter-rouge">sequence</code> or <code class="language-plaintext highlighter-rouge">seq</code> list</h5>
+
+<ul>
+  <li>function: continuously sequences the items given in a loop; currently only sequences in the item order but will soon include different sequence orderings</li>
+  <li>arguments:
+    <ul>
+      <li>list: any list of ints/floats/symbols</li>
+    </ul>
+  </li>
+</ul>
+
+<h5 id="random-or-rand-list"><code class="language-plaintext highlighter-rouge">random</code> or <code class="language-plaintext highlighter-rouge">rand</code> list</h5>
+
+<ul>
+  <li>function: randomly selects from items within the list</li>
+  <li>arguments:
+    <ul>
+      <li>list: any list of ints/floats/symbols</li>
+    </ul>
+  </li>
+</ul>
+
+<h5 id="urn-list"><code class="language-plaintext highlighter-rouge">urn</code> list</h5>
+
+<ul>
+  <li>function: randomly selects without repetitions from items within the list; once all have been chosen the list is reset</li>
+  <li>arguments:
+    <ul>
+      <li>list: any list of ints/floats/symbols</li>
+    </ul>
+  </li>
+</ul>
+
+<h5 id="wrandom-or-wrand-listweights"><code class="language-plaintext highlighter-rouge">wrandom</code> or <code class="language-plaintext highlighter-rouge">wrand</code> [list][weights]</h5>
+
+<ul>
+  <li>function: randomly selects from the given list according to the given relative weights</li>
+  <li>arguments:
+    <ul>
+      <li>brackets are required for the list and weights</li>
+      <li>list: any list of ints/floats/symbols</li>
+      <li>weights: list of ints/floats
+        <ul>
+          <li>weights are normalized to 1</li>
+          <li>both list and weights needs to be the same length</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h5 id="move-or-moveloop-value1-value2-time"><code class="language-plaintext highlighter-rouge">move</code> or <code class="language-plaintext highlighter-rouge">moveloop</code> value1 value2 time</h5>
+
+<ul>
+  <li>function: move linearly between value1 and value2 over defined time
+    <ul>
+      <li>move stays a value2 when time is reached</li>
+      <li>moveloop cycles back to value1 once value2 has been reached</li>
+    </ul>
+  </li>
+  <li>arguments:
+    <ul>
+      <li>value1 and value2: can only be ints/floats</li>
+      <li>time: integer in milliseconds</li>
+    </ul>
+  </li>
+</ul>
+
+<h5 id="for-or-forloop-time-keyword-arguments-then-"><code class="language-plaintext highlighter-rouge">for</code> or <code class="language-plaintext highlighter-rouge">forloop</code> time keyword arguments &lt;then&gt; …</h5>
+
+<ul>
+  <li>function: allows any of the above keywords to be used in sequence and combined</li>
+  <li>arguments:
+    <ul>
+      <li>time: integer in milliseconds</li>
+      <li>keyword arguments: any keyword listed above (e.g., random, range, sequence) followed by its respective arguments</li>
+      <li>then: is an optional argument that allows a sequence of keywords</li>
+    </ul>
+  </li>
+  <li>examples:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">for</code> 5000 range 0.0 1.0 then 5000 range 10.0 100.0
+        <ul>
+          <li>means: for 5 seconds use floats within the range 0.0 to 1.0 then for 5 seconds use floats within the range 10.0 to 100.0</li>
+        </ul>
+      </li>
+      <li><code class="language-plaintext highlighter-rouge">forloop</code> 5000 range 0.0 1.0 then 5000 rand 1 2 3 4 5
+        <ul>
+          <li>means: loop continuously between 5 seconds of floats in the range 0.0 to 1.0 then 5 seconds of randomly selection from the integers 1 2 3 4 5</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>Check out videos of it below:</p>
+
+<video class="my-3" width="100%" height="100%" controls="controls">
+  <source src="/assets/video/gsfp-video-demonstration.mp4" type="video/mp4" />
+</video>
+
+<p>These next two have older interfaces but showcase different sounds:</p>
+
+<video class="my-3" width="100%" height="100%" controls="controls">
+  <source src="/assets/video/gsfp-video-demonstration2.mp4" type="video/mp4" />
+</video>
+
+<video class="my-3" width="100%" height="100%" controls="controls">
+  <source src="/assets/video/gsfp-video-demonstration3.mp4" type="video/mp4" />
+</video>
+
+<h2 class="mt-5 mb-3">Granular Synthesis</h2>
+
+<p><img src="/assets/img/granular-synthesis.png" class="img-fluid" alt="Screenshot of Granular Synth" /></p>
+
+<p>Granular synthesis is a powerful tool for sound design that I frequently use in my compositional work. This custom patch in Max/MSP is a creative tool for sound generation and also a pedagogical tool that I have given to students, allowing them to explore granular synthesis and all of its essential parameters through this interface.</p>
+
+<p>The software:</p>
+
+<ul>
+  <li>uses both synchronous and asynchronous granular synthesis</li>
+  <li>can load 3 sound files (but it’s arbitrary to increase that number)</li>
+  <li>can randomly select from those files or use only one</li>
+  <li>allows a wide range of grain rate and grain size (controlled via the XY slider in the center)</li>
+  <li>allows for a variety of window shapes to be applied to grains</li>
+  <li>gives controls for traversal rate through the sound file and transposition of it</li>
+  <li>allows for recording the output in separate module (not pictured)</li>
+</ul>
+
+<div class="col-12 mb-4 text-center">
+  <a href="#" class="btn btn-outline-secondary">Download</a>
+</div>
+
+<h2 class="mt-5 mb-3">Composition Tools</h2>
+
+<p><img class="img-fluid" src="/assets/img/comp-tools-sets.png" alt="Screenshot of Comp Tools" /></p>
+
+<p><img class="img-fluid" src="/assets/img/comp-tools-interval-cycles.png" alt="Screenshot of Interval Cycles" /></p>
+
+<p>I have built a number of set theory tools for composition and analysis, two of which are shown above. Most of the tools make extensive use of the <a href="http://http://www.bachproject.net/"><code class="language-plaintext highlighter-rouge">bach</code></a> externals for calculations and notation display.</p>
+
+<p>In the first picture shown above, the interface takes a list of pitch-classes from which a number of useful characteristics are displayed:</p>
+
+<ul>
+  <li>prime form, normal form, interval vector, and complement</li>
+  <li>all transpositions, inversions, M, and MI operations</li>
+  <li>common tones between these operations</li>
+  <li>Robert Morris’ set class inclusion table and all members included with a given set class</li>
+</ul>
+
+<p>The second screenshot displays a tool for generating a sequence of interval cycle chords. The tool allows for up to four voices with independent interval cycle collections. The contour, starting pitch, octave location, and rotation of each voice can all be controlled. The sequence of chords can be auditioned, and further manipulated using any of the <code class="language-plaintext highlighter-rouge">bach.roll</code> notation display functions (including expanding/compressing duration and transposition).</p>
+
+<div class="col-12 mb-4 text-center">
+  <a href="#" class="btn btn-outline-secondary">Download</a>
+</div>
+
+  </div>
+
+</article>
+
+
+      </div><!-- /.container -->
+    </div><!-- /.wrapper -->
+
+    <footer class="site-footer">
+  <div class="text-center mt-4 mb-4">
+    <h5>Contact</h5>
+    <script>
+      var eml = 'chr' + 'isto' + 'phe' + 'r.e.' + 'chan' + 'dle' + 'r@' + 'g' + 'ma' + 'il' + '.c' +'om';
+      document.write('<a href="mai' + 'lto:' + eml +'">' + eml + '</a>');
+    </script>
+    <address>
+      Union College <br>
+      Taylor Music Center <br>
+      807 Union St. <br>
+      Schenectady, NY 12308
+    </address>
+  </div>
+
+
+  <div class="scripts">
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <!-- <script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery.min.js"></script>')</script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="http://cdn.jsdelivr.net/jquery.mixitup/latest/jquery.mixitup.min.js"></script>
+
+    <!-- Mixitup settings and random background chooser -->
+    <script src="/assets/js/main.js"></script>
+
+    <!-- Add mousewheel plugin (this is optional) -->
+    <script type="text/javascript" src="/assets/fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
+
+    <!-- Add fancyBox -->
+    <script type="text/javascript" src="/assets/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+    <!-- Optionally add helpers - button, thumbnail and/or media -->
+    <script type="text/javascript" src="/assets/fancybox/source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+    <script type="text/javascript" src="/assets/fancybox/source/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+    <script type="text/javascript" src="/assets/fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+
+    <!-- Run fancybox to display score images -->
+    <script type="text/javascript" src="/assets/js/fancybox-settings.js"></script>
+
+    <!-- Media Element Audio Player -->
+    <script src="/assets/js/mediaelement-and-player.min.js"></script>
+    <script src="/assets/js/audio.js"></script>
+
+    
+
+  </div>
+</footer>
+
+
+  </body>
+
+</html>

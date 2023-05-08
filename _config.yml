@@ -1,0 +1,22 @@
+# DON'T USE TABS!!!
+
+# Site settings
+title: CEC | Composer
+email: christopher.e.chandler@gmail.com
+description: > # this means to ignore newlines until "baseurl:"
+ Website for the composer Christopher Chandler.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site
+images: "/assets/img"
+plugins:
+  - jekyll-paginate
+  - jekyll-last-modified-at
+
+paginate_path: "/news/page:num"
+
+# Build settings
+markdown: kramdown
+
+# Outputting
+permalink: /:year/:month/:day/:title
+paginate: 10

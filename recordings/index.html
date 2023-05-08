@@ -1,0 +1,27 @@
+---
+layout: page
+title: Recordings
+---
+
+{%- for recording in site.data.recordings -%}
+  <div class="row recording">
+    {%- if recording.artwork -%}
+      <div class="col-6 col-sm-4 col-md-4 pb-4 pb-md-0 mx-auto mx-md-0 cd-cover">
+        {%- if recording.link -%}
+          <a href="{{ recording.link }}"><img src="{{ site.images }}/{{ recording.artwork }}" alt="" class="img-thumbnail"/></a>
+        {%- else -%}
+          <img src="{{ site.images }}/{{ recording.artwork }}" alt="" class="img-thumbnail"/>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+    <div class="col-12 col-md-7 text-center text-md-left">
+      <h4>{{ recording.title }} ({{ recording.year }})</h4>
+      {%- for item in recording.tracklist -%}
+      <div class="d-flex justify-content-between pb-1">
+        <div class="composer">{{ item.composer }}</div>
+        <div class="composition">{{ item.work }}</div>
+      </div>
+      {%- endfor -%}
+    </div>
+  </div>
+{%- endfor -%}

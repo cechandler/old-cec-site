@@ -1,0 +1,25 @@
+- title: Home
+  url: /index.html
+
+- title: About
+  url: /about/
+
+- title: News
+  url: /news/
+
+- title: Music
+  url: /music/
+
+- title: Research
+  url: /research/tools/
+  sublinks:
+    - page: Tools
+      url: /research/tools/
+    - page: Dissertation
+      url: /research/dissertation/
+
+- title: Recordings
+  url: /recordings/
+
+- title: Performances
+  url: /performances/

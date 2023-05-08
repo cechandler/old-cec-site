@@ -1,0 +1,22 @@
+<div class="sidebar">
+  <button class="navbar-toggler hidden-md-up" type="button" data-toggle="collapse" data-target="#navbar-header" aria-controls="navbar-header">
+    <i class="fa fa-bars"></i>
+  </button>
+  <nav class="sidebar-nav">
+    <!-- <a class="navbar-brand site-title" href="{{ site.baseurl }}/"><h1>{{ site.title }}</h1></a> -->
+    <div id="navbar-header" class="collapse navbar-toggleable-sm">
+      {% for link in site.navigation %}
+        {% assign current = nil %}
+        {% if page.url contains link.url %}
+          <!-- {% assign current = 'active' %} switch back to this if sr-only looks weird on mobile-->
+          {% assign current = "active <span class="sr-only">(current)</span>" %}
+        {% elsif page.url contains "music" and link.url contains "music" %}
+          {% assign current = "active <span class="sr-only">(current)</span>" %}
+        {% elsif page.url contains "news" and link.url contains "news" %}
+          {% assign current = "active <span class="sr-only">(current)</span>" %}
+        {% endif %}
+        <a class="sidebar-nav-item {% if forloop.first %}first{% endif %} {{ current }} {% if forloop.last %}last{% endif %}" href="{{ link.url }}">{{ link.title }}</a>
+      {% endfor %}
+    </div>
+  </nav>
+</div>

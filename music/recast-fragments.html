@@ -1,0 +1,76 @@
+---
+layout: page
+title: Recast Fragments
+---
+
+{% assign work = "Recast Fragments" %}
+
+{% for entry in site.data.works %}
+  {% if entry.Title == work %}
+
+    {% if entry.Score == null %}
+
+    <div class="row work">
+      <div class="col-md-12">
+
+        {% include music-title.html %}
+
+        {% include music-audio.html file="recast-mvmt1" name="Movement I" %}
+        {% include music-audio.html file="recast-mvmt2" name="Movement II" %}
+        {% include music-audio.html file="recast-mvmt3" name="Movement III" %}
+        {% include music-audio.html file="recast-mvmt4" name="Movement IV" %}
+
+        {% include music-program-notes.html %}
+
+      </div>
+    </div>
+
+    {% else %}
+
+    <div class="row work">
+      <div class="col-md-7">
+
+        {% include music-title.html %}
+
+        {% include music-audio.html file="recast-mvmt1" name="Movement I" %}
+        {% include music-audio.html file="recast-mvmt2" name="Movement II" %}
+        {% include music-audio.html file="recast-mvmt3" name="Movement III" %}
+        {% include music-audio.html file="recast-mvmt4" name="Movement IV" %}
+
+        {% include music-program-notes.html %}
+
+      </div>
+
+      <div class="col-9 col-md-5 pb-4 pb-md-0 mx-auto">
+
+        {% include music-score.html hidden="Y" file="recast-fragments-1.png" %}
+        {% include music-score.html hidden="Y" file="recast-fragments-2.png" %}
+        {% include music-score.html hidden="N" file="recast-fragments-3.png" %}
+        <!-- {% include music-score.html hidden="Y" file="recast-fragments-4.png" %} -->
+        {% include music-score.html hidden="Y" file="recast-fragments-5.png" %}
+        <!-- {% include music-score.html hidden="Y" file="recast-fragments-6.png" %} -->
+        {% include music-score.html hidden="Y" file="recast-fragments-7.png" %}
+        <!-- {% include music-score.html hidden="Y" file="recast-fragments-8.png" %} -->
+        <!-- {% include music-score.html hidden="Y" file="recast-fragments-9.png" %} -->
+        {% include music-score.html hidden="Y" file="recast-fragments-10.png" %}
+        <!-- {% include music-score.html hidden="Y" file="recast-fragments-11.png" %} -->
+        <!-- {% include music-score.html hidden="Y" file="recast-fragments-12.png" %} -->
+        {% include music-score.html hidden="Y" file="recast-fragments-13.png" %}
+        {% include music-score.html hidden="Y" file="recast-fragments-14.png" %}
+        <!-- {% include music-score.html hidden="Y" file="recast-fragments-15.png" %} -->
+        <!-- {% include music-score.html hidden="Y" file="recast-fragments-16.png" %} -->
+        {% include music-score.html hidden="Y" file="recast-fragments-17.png" %}
+        {% include music-score.html hidden="Y" file="recast-fragments-18.png" %}
+        {% include music-score.html hidden="Y" file="recast-fragments-19.png" %}
+
+      </div>
+
+    </div>
+
+    {% endif %}
+
+    {% include music-perf-list.html %}
+
+  {% else %}
+  {% endif %}
+{% endfor %}

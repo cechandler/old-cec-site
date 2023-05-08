@@ -1,0 +1,76 @@
+---
+layout: page
+title: Three Pieces for Chamber Orchestra
+---
+
+{% assign work = "Three Pieces for Chamber Orchestra" %}
+
+{% for entry in site.data.works %}
+  {% if entry.Title == work %}
+
+    {% if entry.Score == null %}
+
+      <div class="row work">
+        <div class="col-md-12">
+
+          {% include music-title.html %}
+
+          {% include music-audio.html file="three-pieces-mvmt-i" name="Movement I" %}
+
+          {% include music-program-notes.html %}
+
+        </div>
+      </div>
+
+    {% else %}
+
+    <div class="row work">
+      <div class="col-md-7">
+
+        {% include music-title.html %}
+
+        {% include music-audio.html file="three-pieces-mvmt-i" name="Movement I" %}
+
+        {% include music-program-notes.html %}
+
+      </div>
+
+      <div class="col-9 col-md-5 pb-4 pb-md-0 mx-auto">
+
+        {% include music-score.html hidden="Y" file="three-pieces-0.png" %}
+        {% include music-score.html hidden="Y" file="three-pieces-1.png" %}
+        {% include music-score.html hidden="Y" file="three-pieces-2.png" %}
+        {% include music-score.html hidden="N" file="three-pieces-mvmt1-3.png" %}
+        {% include music-score.html hidden="Y" file="three-pieces-mvmt1-4.png" %}
+        {% include music-score.html hidden="Y" file="three-pieces-mvmt1-5.png" %}
+        {% include music-score.html hidden="Y" file="three-pieces-mvmt1-6.png" %}
+        {% include music-score.html hidden="Y" file="three-pieces-mvmt1-7.png" %}
+        {% include music-score.html hidden="Y" file="three-pieces-mvmt1-8.png" %}
+        {% include music-score.html hidden="Y" file="three-pieces-mvmt1-9.png" %}
+        {% include music-score.html hidden="Y" file="three-pieces-mvmt1-10.png" %}
+        {% include music-score.html hidden="Y" file="three-pieces-mvmt1-11.png" %}
+        {% include music-score.html hidden="Y" file="three-pieces-mvmt1-12.png" %}
+        {% include music-score.html hidden="Y" file="three-pieces-mvmt1-13.png" %}
+        {% include music-score.html hidden="Y" file="three-pieces-mvmt1-14.png" %}
+        {% include music-score.html hidden="Y" file="three-pieces-mvmt1-15.png" %}
+        {% include music-score.html hidden="Y" file="three-pieces-mvmt1-16.png" %}
+        {% include music-score.html hidden="Y" file="three-pieces-mvmt1-17.png" %}
+        {% include music-score.html hidden="Y" file="three-pieces-mvmt1-18.png" %}
+        {% include music-score.html hidden="Y" file="three-pieces-mvmt1-19.png" %}
+        {% include music-score.html hidden="Y" file="three-pieces-mvmt1-20.png" %}
+        {% include music-score.html hidden="Y" file="three-pieces-mvmt1-21.png" %}
+        {% include music-score.html hidden="Y" file="three-pieces-mvmt1-22.png" %}
+        {% include music-score.html hidden="Y" file="three-pieces-mvmt1-23.png" %}
+        {% include music-score.html hidden="Y" file="three-pieces-mvmt1-24.png" %}
+
+      </div>
+
+    </div>
+
+    {% endif %}
+
+    {% include music-perf-list.html %}
+
+  {% else %}
+  {% endif %}
+{% endfor %}

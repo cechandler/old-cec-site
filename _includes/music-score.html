@@ -1,0 +1,12 @@
+{% if include.hidden == "N" %}
+  <a class="fancybox" rel="gallery" href="{{ site.baseurl }}/assets/scores/{{ include.file }}">
+    <img src="{{ site.baseurl }}/assets/scores/{{ include.file }}" alt="score-excerpt" class="img-fluid"/>
+  </a>
+{% elsif include.hidden == "Y" %}
+  <div class="hidden">
+    <a class="fancybox" rel="gallery" href="{{ site.baseurl }}/assets/scores/{{ include.file }}">
+      <img src="{{ site.baseurl }}/assets/scores/{{ include.file }}" alt="score-excerpt" class="img-fluid"/>
+    </a>
+  </div>
+{% else %}
+{% endif %}

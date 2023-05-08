@@ -1,0 +1,41 @@
+<!-- <h3>Mini Bio</h3>
+<p class="mini-bio small">Christopher Chandler is a composer of acoustic and electroacoustic music currently serving as a Visiting Instructor at the University of Richmond.</p> -->
+
+<h3>Upcoming</h3>
+{% for entry in site.data.performances limit:5 %}
+  {% if entry.Composition == null %}
+  {% else %}
+    {% capture time_now %}{{ 'now' | date: "%s" }}{% endcapture %}
+    {% capture full_date %}{{ entry.Year }}-{{ entry.Month }}-{{ entry.Day }}{% endcapture %}
+    {% capture perf_date %}{{ full_date | date: '%s' }}{% endcapture %}
+    <div class="performance {{ entry.Year }} {% if perf_date > time_now %} upcoming {% endif %} small">
+       <h5 class="date">
+         {{ full_date | date:"%B" }} {{ full_date | date: "%-d" }}, {{ full_date | date: "%Y" }}
+       </h5>
+
+       {% if entry.Event == null %}
+       {% else %}
+          <p class="event">{{ entry.Event }}</p>
+       {% endif %}
+
+       <div class="address">
+        <p>{{ entry.Venue }}</p>
+
+        {% if entry.Street == null %}
+        {% else %}
+            <p>{{ entry.Street }}</p>
+        {% endif %}
+
+        <p>{% if entry.City == null %}{% else %}{{ entry.City }}, {% endif %}{{ entry.State }}</p>
+       </div>
+
+       {% if entry.Conductor == null %}
+         <p class="performer">{{ entry.Performers }}</p>
+       {% else %}
+         <p class="performer">{{ entry.Performers }}</p>
+         <p class="conductor">{{ entry.Conductor }}, conductor</p>
+       {% endif %}
+      <p class="composition">{{ entry.Composition }}</p>
+    </div><!-- /.details -->
+  {% endif %}
+{% endfor %}

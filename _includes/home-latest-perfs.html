@@ -1,0 +1,64 @@
+<div class="latest performance-list">
+	<!-- <div class="card">
+		<div class="row no-gutters">
+				<div class="col-6">
+						<img src="//placehold.it/300x200/000000" class="img-fluid" alt="">
+				</div>
+				<div class="col-6">
+					<h4 class="card-title">Title</h4>
+					<p class="card-text">Description</p>
+				</div>
+		</div>
+	</div> -->
+
+	<!-- liquid capture stores variable -->
+	<!-- %s filter is a unix timestamp to compare current time with performance date for upcoming class -->
+	{% for entry in site.data.performances limit:5 %}
+		{% if entry.Composition == null %}
+		{% else %}
+			{% capture time_now %}{{ 'now' | date: "%s" }}{% endcapture %}
+			{% capture full_date %}{{ entry.Year }}-{{ entry.Month }}-{{ entry.Day }}{% endcapture %}
+			{% capture perf_date %}{{ full_date | date: '%s' }}{% endcapture %}
+
+				<div class="latestperf {{ entry.Year }} {% if perf_date > time_now %}upcoming {% else %}past{% endif %} mb-3">
+
+					<div class="row">
+
+						 {% if entry.Image == null %}
+						 <div class="col-4 px-0 pl-3">
+							 <!-- <img src="//placehold.it/300x200/000000" class="img-fluid" alt=""> -->
+						 </div>
+						 {% else %}
+						   <div class="col-4 px-0 pl-3">
+								 <img src="{{ site.baseurl }}/assets/img/{{ entry.Image }}" class="img-fluid" alt="image"/>
+							 </div>
+						 {% endif %}
+
+					 	 <div class="details col-8">
+							 <p class="date font-weight-bold">{{ full_date | date:"%B" }} {{ full_date | date: "%-d" }}, {{ full_date | date: "%Y" }}</p>
+
+							 <p class="composition mb-1">{{ entry.Composition }}</p>
+
+							 {% if entry.Conductor == null %}
+							 	 <p class="performer">{{ entry.Performers }}</p>
+							 {% else %}
+								 <p class="performer">{{ entry.Performers }}</p>
+								 <p class="conductor">{{ entry.Conductor }}, conductor</p>
+							 {% endif %}
+
+							 {% if entry.Event == null %}
+							 {% else %}
+							 		<p class="event">{{ entry.Event }}</p>
+							 {% endif %}
+
+							 <div class="address">
+								 <p class="citystate">{% if entry.City == null %}{% else %}{{ entry.City }}, {% endif %}{{ entry.State }}</p>
+							 </div>
+
+					 	 </div><!-- /.details -->
+					 </div><!-- /.row -->
+				</div><!-- /.performance -->
+
+		{% endif %}
+	{% endfor %}
+</div> <!-- /.performance-list -->

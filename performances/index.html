@@ -1,0 +1,115 @@
+---
+layout: page
+title: Performances
+---
+
+<!-- capture current year and store in variable -->
+{% capture current_year %}{{ site.time | date: '%Y' }}{% endcapture %}
+
+<div class="mb-3 text-center">
+	<button
+		type="button"
+		class="btn btn-outline-secondary btn-sm filter-event"
+		data-filter=".upcoming">
+		Upcoming
+	</button>
+	<button
+		type="button"
+		class="btn btn-outline-secondary btn-sm filter-event"
+		data-filter=".recent">
+		Recent
+	</button>
+
+	<!-- conditionally generate buttons based on current year variable -->
+	{% for i in (2008..current_year) reversed %}
+		<button
+			type="button"
+			class="btn btn-outline-secondary btn-sm filter-event"
+			data-filter=".{{ i }}">
+			{{ i }}
+		</button>
+	{% endfor %}
+
+	<button
+		type="button"
+		class="btn btn-outline-secondary btn-sm filter-event"
+		data-filter="all">
+		All
+	</button>
+
+</div>
+
+<div class="mixitup-event performance-list">
+	<!-- liquid capture stores variable -->
+	<!-- %s filter is a unix timestamp to compare current time with performance date for upcoming class -->
+	{% for entry in site.data.performances %}
+		{% if entry.Composition == null %}
+		{% else %}
+			{% capture time_now %}{{ 'now' | date: "%s" }}{% endcapture %}
+			{% capture full_date %}{{ entry.Year }}-{{ entry.Month }}-{{ entry.Day }}{% endcapture %}
+			{% capture perf_date %}{{ full_date | date: '%s' }}{% endcapture %}
+
+			<div class="performance {{ entry.Year }} {% if perf_date > time_now %}upcoming {% endif %}{% if forloop.index < 11 %}recent{% endif %} mb-5">
+
+				<div class="row">
+
+					 {% if entry.Image == null %}
+					 <div class="col-5 col-md-4 ml-auto">
+					 </div>
+					 {% else %}
+					   <div class="col-5 col-md-4 ml-auto">
+							 <img src="{{ site.baseurl }}/assets/img/{{ entry.Image }}" alt="image" class="img-thumbnail"/>
+						 </div>
+					 {% endif %}
+
+				 	 <div class="details col-6 col-md-4 mr-auto">
+						 <h3 class="date">{{ full_date | date:"%B" }} {{ full_date | date: "%-d" }}, {{ full_date | date: "%Y" }}</h3>
+						 <h4 class="location">{% if entry.City == null %}{% else %}{{ entry.City }}, {% endif %}{{ entry.State }}</h4>
+
+						 <p class="composition my-3">{{ entry.Composition }}</p>
+
+						 {% if entry.Conductor == null %}
+						 	 <p class="performer">{{ entry.Performers }}</p>
+						 {% else %}
+							 <p class="performer">{{ entry.Performers }}</p>
+							 <p class="conductor">{{ entry.Conductor }}, conductor</p>
+						 {% endif %}
+
+						 {% if entry.Event == null %}
+						 {% else %}
+						 		<p class="event">{{ entry.Event }}</p>
+						 {% endif %}
+
+						 <div class="address">
+							 <p class="venue">{{ entry.Venue }}</p>
+
+							 {% if entry.Street == null %}
+							 {% else %}
+							 	 <p class="street">{{ entry.Street }}</p>
+							 {% endif %}
+
+							 <p class="citystate">{% if entry.City == null %}{% else %}{{ entry.City }}, {% endif %}{{ entry.State }}</p>
+						 </div>
+
+						 <!-- {% if entry.Time == null %}
+						 {% else %}
+						 		<p class="time">{{ entry.Time }}</p>
+						 {% endif %}
+
+						 {% if entry.Price == null %}
+						 {% else %}
+						 		<p class="price">{{ entry.Price }}</p>
+						 {% endif %}
+
+						 {% if entry.Repertoire == null %}
+						 {% else %}
+						 {% endif %} -->
+
+				 	 </div><!-- /.details -->
+
+				 </div><!-- /.row -->
+
+			</div><!-- /.performance -->
+		{% endif %}
+	{% endfor %}
+</div> <!-- /.performance-list -->

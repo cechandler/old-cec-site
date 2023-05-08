@@ -1,0 +1,30 @@
+---
+layout: page
+---
+<div class="row">
+
+  <div class="col-12 mb-4">
+    <img src="{{ site.baseurl }}/assets/img/chris-chandler-headshot-woods.jpg" class="img-fluid" alt="Headshot">
+  </div>
+
+    <div class="col-12 col-sm-6 order-2 order-sm-1 order-md-1">
+      <h4>Recent and Upcoming Events</h4>
+
+      {% include home-latest-perfs.html %}
+
+      <a href="{{ site.baseurl }}/performances/" class="more">
+        <button type="button" class="btn btn-outline-secondary">More Events</button>
+      </a>
+    </div>
+
+    <div class="col-12 col-sm-6 order-1 order-sm-2 order-md-2 mb-4">
+      <h4>Selected Works</h4>
+
+      {% include home-selected-works.html %}
+
+      <a href="{{ site.baseurl }}/music/" class="more">
+        <button type="button" class="btn btn-outline-secondary">More Music</button>
+      </a>
+    </div>
+
+</div><!-- ./row -->
